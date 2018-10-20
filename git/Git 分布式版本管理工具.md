@@ -164,3 +164,13 @@ git commit -m <message> <file> 就不用进vim编辑器了。
 8.比较文件
 
 ​	使用git diff [Head]^ #{file}比较 可以和历史版本进行比较。
+
+9.分支操作
+
+​	使用git branch #{branch name}创建分支
+
+​	查看分支git branch -v
+
+​	切换分支git checkout #{branch name}
+
+​	合并分支切换到需要合并的分支上，使用merge命令
