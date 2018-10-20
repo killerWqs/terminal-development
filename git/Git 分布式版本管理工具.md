@@ -49,35 +49,35 @@ github和码云实际上就是远程库，相当于一个备份吧，除此之�
 
 1. 本地库初始化	
 
-	git init
+  git init
 
-	Initialized empty Git repository in C:/Users/12494/Desktop/.git/
+  Initialized empty Git repository in C:/Users/12494/Desktop/.git/
 
-	在linux中以点开头的目录都是隐藏目录。
+  在linux中以点开头的目录都是隐藏目录。
 
-	.git是本地库相关的子目录和文件。
+  .git是本地库相关的子目录和文件。
 
-   2.设置签名(设置到了.git/config)
+  2.设置签名(设置到了.git/config)
 
-	git config user.name killerWqs
+  git config user.name killerWqs
 
-	git config user.email 1249476676@qq.com
+  git config user.email 1249476676@qq.com
 
-	形式
+  形式
 
-	用户名：tom
+  用户名：tom
 
-	Email 地址： 1249476676@qq.com
+  Email 地址： 1249476676@qq.com
 
-	作用：区分不同开发人员的身份，和账号密码没有任何关系。
+  作用：区分不同开发人员的身份，和账号密码没有任何关系。
 
-	命令：
+  命令：
 
-		项目级别/仓库级别：git config
-		
-		系统用户级别：git config --global
-		
-		优先级：就近原则，如果有项目级别的签名则使用项目级别的签名，如果没有则使用windows用户的签			   				名。如果都没有是不允许的，那么问题来了怎会没有呢？
+  项目级别/仓库级别：git config
+
+  系统用户级别：git config --global
+
+  优先级：就近原则，如果有项目级别的签名则使用项目级别的签名，如果没有则使用windows用户的签			   				名。如果都没有是不允许的，那么问题来了怎会没有呢？
 
 **show status**用来查看状态
 
@@ -136,11 +136,10 @@ git commit -m <message> <file> 就不用进vim编辑器了。
 
    参数：
 
-   	--soft：移动head指针
-	
-   	--mixed：yihonghead指针，重置缓存区
-	
-   	--hard：yihonghead指针，重置缓存区，跟新工作区
+   --soft：移动head指针
+
+   --mixed：yihonghead指针，重置缓存区
+   --hard：yihonghead指针，重置缓存区，跟新工作区
 
    用于维护一致性。比如：移动本地库，缓存区中文件，是之前版本中的缓存区。本地文件有不一致。
 
@@ -157,22 +156,23 @@ git commit -m <message> <file> 就不用进vim编辑器了。
 
 7.删除文件
 
-	从工作区删除文件后，通过git commit ..
-	
-	git commit 对于增加，修改，删除都有用。
+​	从工作区删除文件后，通过git commit ..
+
+​	git commit 对于增加，修改，删除都有用。
 
 8.比较文件
-
 	使用git diff [Head]^ #{file}比较 可以和历史版本进行比较。
 
 9.分支操作
 
 	使用git branch #{branch name}创建分支
-
 	查看分支git branch -v
-
 	切换分支git checkout #{branch name}
 
 ​	合并分支切换到需要合并的分支上，使用merge命令
 
-啦啦啦
+10.冲突解决
+
+- 删除特殊符号
+- git add #{文件名}
+- git commit 不添加文件名
