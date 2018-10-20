@@ -37,9 +37,9 @@ github和码云实际上就是远程库，相当于一个备份吧，除此之�
 
 本地库与远程库的关系：
 
-​				<--merge pull request<-----
+				<--merge pull request<-----
 
-​				|		跨团队协作	|
+				|		跨团队协作	|
 
 本地库-->push-->远程库 -->fork-->远程库-->clone,pull-->本地库
 
@@ -55,29 +55,29 @@ github和码云实际上就是远程库，相当于一个备份吧，除此之�
 
 	在linux中以点开头的目录都是隐藏目录。
 
-​	.git是本地库相关的子目录和文件。
+	.git是本地库相关的子目录和文件。
 
    2.设置签名(设置到了.git/config)
 
-​	git config user.name killerWqs
+	git config user.name killerWqs
 
-​	git config user.email 1249476676@qq.com
+	git config user.email 1249476676@qq.com
 
-​	形式
+	形式
 
-​	用户名：tom
+	用户名：tom
 
-​	Email 地址： 1249476676@qq.com
+	Email 地址： 1249476676@qq.com
 
-​	作用：区分不同开发人员的身份，和账号密码没有任何关系。
+	作用：区分不同开发人员的身份，和账号密码没有任何关系。
 
-​	命令：
+	命令：
 
-​		项目级别/仓库级别：git config
+		项目级别/仓库级别：git config
 
-​		系统用户级别：git config --global
+		系统用户级别：git config --global
 
-​		优先级：就近原则，如果有项目级别的签名则使用项目级别的签名，如果没有则使用windows用户的签			   				名。如果都没有是不允许的，那么问题来了怎会没有呢？
+		优先级：就近原则，如果有项目级别的签名则使用项目级别的签名，如果没有则使用windows用户的签			   				名。如果都没有是不允许的，那么问题来了怎会没有呢？
 
 **show status**用来查看状态
 
@@ -130,5 +130,28 @@ git commit -m <message> <file> 就不用进vim编辑器了。
 
    使用git ls-files查看仓库中文件
 
+   git reset --hard HEAD^（个数）代表回退几个版本。
 
+   git reset --hard HEAD~#{回退版本个数}
+
+   参数：
+
+   ​	--soft：移动head指针
+
+   ​	--mixed：yihonghead指针，重置缓存区
+
+   ​	--hard：yihonghead指针，重置缓存区，跟新工作区
+
+   用于维护一致性。比如：移动本地库，缓存区中文件，是之前版本中的缓存区。本地文件有不一致。
+
+#### 解决git中文乱码：
+
+<u>在cygwin中，使用git add添加要提交的文件的时候，如果文件名是中文，会显示形如 274\232\350\256\256\346\200\273\347\273\223.png 的乱码。</u> 
+
+- <u>解决方案：在bash提示符下输入： `git config --global core.quotepath false`</u>
+
+- <u>core.quotepath设为false的话，就不会对0x80以上的字符进行quote。中文显示正常。</u> 
+
+
+**bash中 选中了就复制了**
 
