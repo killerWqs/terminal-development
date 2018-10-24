@@ -156,9 +156,9 @@ git commit -m <message> <file> 就不用进vim编辑器了。
 
 7.删除文件
 
-​	从工作区删除文件后，通过git commit ..
+	从工作区删除文件后，通过git commit ..
 
-​	git commit 对于增加，修改，删除都有用。
+	git commit 对于增加，修改，删除都有用。
 
 8.比较文件
 	使用git diff [Head]^ #{file}比较 可以和历史版本进行比较。
@@ -169,10 +169,12 @@ git commit -m <message> <file> 就不用进vim编辑器了。
 	查看分支git branch -v
 	切换分支git checkout #{branch name}
 
-​	合并分支切换到需要合并的分支上，使用merge命令
+	合并分支切换到需要合并的分支上，使用merge命令
 
 10.冲突解决
 
 - 删除特殊符号
 - git add #{文件名}
 - git commit 不添加文件名
+
+#### 使用git remote add 添加远程库：
