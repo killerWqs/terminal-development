@@ -51,3 +51,103 @@ mvn archetype:generate 生成项目
 
 
 ### 还需要了解的是一些配置：啦啦啦
+
+### 咕泡学院学习笔记：
+
+#### maven优势：
+
+1. **<u>约定由于配置</u>** convention over configuration
+2. 简单
+3. 测试支持
+4. 构建简单
+5. cl
+6. 插件丰富
+
+maven 会使用系统用户目录下的settings.xml覆盖maven_home 目录下的conf的settings.xml。
+
+
+
+maven通过在dependencies中对dependency使用<type>import</type>可以导入依赖的dependenciesmanagement。
+
+
+
+公司会通过给你安装本地localreposity提供一些依赖，也许大公司会使用私服来给你提供jar包依赖。
+
+私服使用<server></server>标签提供连接远程库的验证信息。
+
+
+
+#### scope域：
+
+1. 默认：compile 编译时存在
+2. test  测试时存在
+3. runtime
+4. provided 当运行环境提供时 如servlet
+5. system 不在中央仓库的包，相当于添加到classpath的包，需要一个本地路径
+
+
+
+设计maven依赖时存在依赖冗余这一现象。
+
+使用mvn dependency:tree > dependencies.txt来查看项目依赖。不过还不如在idea maven project侧边栏查看更方便。
+
+
+
+#### 生命周期：每个生命周期的步骤执行之前会将该生命周期位于他之前的步骤都执行一遍
+
+##### clean 生命周期：
+
+1. pre-clean    ：执行清理前的工作；
+2. clean    ：清理上一次构建生成的所有文件；
+3. post-clean    ：执行清理后的工作
+
+##### default 生命周期：
+
+1. validate	  ：校验项目代码；
+2. compile    ：编译项目的源代码；
+3. test    ：运行测试代码；
+4. package    ：打包成jar或者war或者其他格式的分发包；
+5. verify
+6. install    ：将打好的包安装到本地仓库，供其他项目使用；
+7. deploy    ：将打好的包安装到远程仓库，供其他项目使用；
+
+site生命周期
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+site生命周期
+
+
+
+
+
+
+
+
+
+site生命周期
+
+
+
+
+
+#####  site生命周期：
+
+1. pre-site
+2. site    ：生成项目的站点文档；
+3. post-site
+4. site-deploy    ：发布生成的站点文档
