@@ -111,43 +111,54 @@ maven通过在dependencies中对dependency使用<type>import</type>可以导入�
 6. install    ：将打好的包安装到本地仓库，供其他项目使用；
 7. deploy    ：将打好的包安装到远程仓库，供其他项目使用；
 
-site生命周期
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-site生命周期
-
-
-
-
-
-
-
-
-
-site生命周期
-
-
-
-
-
 #####  site生命周期：
 
 1. pre-site
 2. site    ：生成项目的站点文档；
 3. post-site
 4. site-deploy    ：发布生成的站点文档
+
+
+
+> 每个生命周期由多个phase组成， 每个phase由多个插件协助完成.
+
+插件通过自定义合适运行
+
+例如：
+
+<executions>
+
+	<execution>
+
+		<phase>install<phase>
+
+	</execution>
+
+</executions>
+
+
+
+**<u>maven的一些列生命周期都是通过插件实现的，就是所谓的责任链模式。</u>**
+
+maven管理的依赖有两个版本，一个是snapshot，一个是release版本。snapshot是一个不稳定版本，快照版本。
+
+**maven clean package -u 强制更新依赖**
+
+版本号标准：主版本.次版本.增量版本—<里程碑版本> such as 1.0.0-release
+
+
+
+#### 介绍几款常用插件：
+
+- ##### findbugs：静态代码检测（没必要，idea会进行静态代码检测）
+
+- **versions**：**设置项目的代码，也许会很有用**
+
+- **source：用来生成项目源代码包**
+- **assembly: 用来打包** （未成功）
+
+
+
+#### 编写自己的plugin：（未完成）
+
+首先引入maven.plugins.api, maven.plugins.annotations
