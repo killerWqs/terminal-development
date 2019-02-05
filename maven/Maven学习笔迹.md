@@ -129,9 +129,9 @@ maven通过在dependencies中对dependency使用<type>import</type>可以导入�
 <executions>
 
 	<execution>
-
+	
 		<phase>install<phase>
-
+	
 	</execution>
 
 </executions>
@@ -155,10 +155,59 @@ maven管理的依赖有两个版本，一个是snapshot，一个是release版本
 - **versions**：**设置项目的代码，也许会很有用**
 
 - **source：用来生成项目源代码包**
-- **assembly: 用来打包** （未成功）
+- **assembly: 用来打包** 
 
 
 
 #### 编写自己的plugin：（未完成）
 
 首先引入maven.plugins.api, maven.plugins.annotations
+
+
+
+maven使用proflie来实现不同环境下的打包。
+
+#### 搭建maven远程仓库：
+
+##### 上传jar：
+
+使用nexus maven服务器 下载地址https://www.sonatype.com/download-oss-sonatype
+
+默认密码: admin / admin123
+
+配置pom.xml文件：
+
+```xml
+<distributionManagement>
+    <repository>
+        <id>nexus-release</id>
+        <name>nexus release reposity</name>
+        <url>http://47.107.106.214:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+        <id>nexus-snapshot</id>
+        <name>nexus snapshot reposity</name>
+        <url>http://47.107.106.214:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
+```
+
+配置settings.xml
+
+``` xml
+<server>
+	<id>nexus-release</id>
+	<username>admin</username>
+	<password>admin123</password>
+</server>
+
+<server>
+	<id>nexus-snapshot</id>
+	<username>admin</username>
+<password>admin123</password>	
+```
+使用deploy部署到远程仓库
+
+##### 下载jar：
+
+配置mirror或者配置profile
